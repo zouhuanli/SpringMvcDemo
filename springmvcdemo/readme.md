@@ -1,0 +1,1 @@
+一个简单的SpringMvc Demo，整合了Mybatis使用.
