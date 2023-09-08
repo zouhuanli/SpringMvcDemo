@@ -12,6 +12,10 @@ public class UserServiceImpl {
     @Autowired
     private UserMapper userDao;
 
+    /**
+     * 查找用户列表
+     * @return
+     */
     public List<User> findUserList() {
         return userDao.findUserList();
     }
