@@ -14,9 +14,10 @@ public class UserServiceImpl {
 
     /**
      * 查找用户列表
+     *
      * @return
      */
-    public List<User> findUserList() {
+    public List<User> findUserList() throws Exception {
         return userDao.findUserList();
     }
 }

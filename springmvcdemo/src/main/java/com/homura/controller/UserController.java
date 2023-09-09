@@ -25,7 +25,7 @@ public class UserController {
     private UserServiceImpl userService;
 
     @RequestMapping("/user")
-    public ModelAndView list(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("dateTime", LocalDateTime.now());
         modelAndView.addObject("userList", userService.findUserList());
