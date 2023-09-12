@@ -15,6 +15,8 @@ public class ApplicationContextTest {
         System.out.println(factoryBeanSelfAlso);
         Alpha exposeBean = (Alpha) applicationContext.getBean("myFactoryBean");
         System.out.println(exposeBean);
-
+        Alpha alpha = (Alpha) applicationContext.getBean("alpha");
+        System.out.println(alpha);
+      //  Alpha alpha1 = (Alpha) applicationContext.getBean(Alpha.class);报错
     }
 }
