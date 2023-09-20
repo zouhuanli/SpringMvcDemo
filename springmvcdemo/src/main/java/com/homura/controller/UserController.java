@@ -24,6 +24,14 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+    /**
+     * 查询所有的用户列表
+     *
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/user")
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
@@ -33,6 +41,14 @@ public class UserController {
         return modelAndView;
     }
 
+    /**
+     * 返回Json数据示例
+     *
+     * @param requestBody
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "/hello", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<String> hello(@RequestBody String requestBody, HttpServletRequest request, HttpServletResponse response) {

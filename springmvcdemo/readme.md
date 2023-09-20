@@ -1,1 +1,1 @@
-一个简单的SpringMvc Demo，整合了Mybatis使用.
+一个简单的SpringMvc Demo，整合了Mybatis使用.如果使用tomcat10,需要javax包更新为jakarta包

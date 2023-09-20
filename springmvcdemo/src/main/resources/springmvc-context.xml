@@ -45,5 +45,6 @@
         <bean class="com.homura.intercept.MyInterceptA"/>
         <bean class="com.homura.intercept.MyInterceptB"/>
         <bean class="com.homura.intercept.MyInterceptC"/>
+        <bean class="com.homura.intercept.TimeCostIntercept"/>
     </mvc:interceptors>
 </beans>

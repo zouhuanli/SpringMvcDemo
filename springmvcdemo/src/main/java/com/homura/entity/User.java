@@ -4,6 +4,10 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * entity
+ * @author zouhl
+ */
 @Data
 public class User implements Serializable {
     /**

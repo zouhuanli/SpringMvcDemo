@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * DAO
+ * @author zouhl
+ */
 @Repository
 public interface UserMapper {
     /**
