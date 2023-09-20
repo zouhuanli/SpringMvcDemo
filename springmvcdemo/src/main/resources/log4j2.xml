@@ -2,7 +2,7 @@
 <Configuration>
     <Properties>
         <Property name="APP">springmvcdemo</Property>
-        <Property name="LOG_HOME">./logs</Property>
+        <Property name="LOG_HOME">D:\\home\\springmvcdemo\\logs</Property>
         <Property name="LOG_FILE">${APP}_console.log</Property>
         <Property name="ERROR_LOG">error.log</Property>
         <Property name="LOG_LEVEL">DEBUG</Property>

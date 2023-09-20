@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LogAspect {
 
-    @Pointcut("execution (* com.homura.service.*.*(..))")
+    @Pointcut("execution (* com.homura.controller.*.*(..))")
     private void pointCutMethod() {
     }
 
@@ -31,7 +31,7 @@ public class LogAspect {
 
     @After("pointCutMethod()")
     public void doAfter() {
-        System.out.println("后者通知");
+        System.out.println("后置通知");
     }
 
     @AfterReturning(value = "pointCutMethod()", returning = "result")
