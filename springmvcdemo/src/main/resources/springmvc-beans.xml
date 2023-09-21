@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--创建一个和@Component同名的Bean-->
+    <bean name="beta" class="com.homura.bean.Beta">
+        <constructor-arg index="0" ref="sigma"/>
+    </bean>
+    <!--创建一个和@Component不同名的Bean-->
+    <bean name="beta1" class="com.homura.bean.Beta">
+        <constructor-arg index="0" ref="sigma"/>
+    </bean>
+
+    <bean name="beta2" class="com.homura.bean.Beta">
+        <property name="sigma" ref="sigma"/>
+    </bean>
+
+</beans>
