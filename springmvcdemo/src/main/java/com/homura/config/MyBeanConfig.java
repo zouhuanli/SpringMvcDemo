@@ -1,6 +1,7 @@
 package com.homura.config;
 
 import com.homura.bean.Beta;
+import com.homura.bean.MyTestBean;
 import com.homura.bean.Sigma;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,5 +25,10 @@ public class MyBeanConfig {
     @Bean(name = "myBetaBean")
     public Beta myBetaBean(@Autowired Sigma sigma) {
         return new Beta(sigma);
+    }
+
+    @Bean(name = "myTestBean", initMethod = "initMethod", destroyMethod = "destroyMethod")
+    public MyTestBean createMyTestBean() {
+        return new MyTestBean();
     }
 }
