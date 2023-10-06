@@ -2,6 +2,8 @@ package com.homura.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class LogAspect {
+    private static final Logger LOGGER= LoggerFactory.getLogger(LogAspect.class);
 
     /**
      * 定义切入点
@@ -32,10 +35,9 @@ public class LogAspect {
      */
     @Around("pointCutMethod()")
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println("----------");
-        System.out.println("环绕通知:进入方法");
+        LOGGER.info("环绕通知:进入方法");
         Object originalResult = joinPoint.proceed();
-        System.out.println("环绕通知:退出方法");
+        LOGGER.info("环绕通知:退出方法");
         return originalResult;
     }
 
@@ -44,7 +46,7 @@ public class LogAspect {
      */
     @Before("pointCutMethod()")
     public void doBefore() {
-        System.out.println("前置通知");
+        LOGGER.info("前置通知");
     }
 
     /**
@@ -52,7 +54,7 @@ public class LogAspect {
      */
     @After("pointCutMethod()")
     public void doAfter() {
-        System.out.println("最终通知");
+        LOGGER.info("最终通知");
     }
 
     /**
@@ -62,7 +64,7 @@ public class LogAspect {
      */
     @AfterReturning(value = "pointCutMethod()", returning = "result")
     public void doAfterReturning(Object result) {
-        System.out.println("后置通知,返回值：" + result);
+        LOGGER.info("后置通知,返回值：" + result);
     }
 
     /**
@@ -72,7 +74,7 @@ public class LogAspect {
      */
     @AfterThrowing(value = "pointCutMethod()", throwing = "e")
     public void doAfterThrowing(Exception e) {
-        System.out.println("异常通知,异常值：" + e);
+        LOGGER.info("异常通知,异常值：" + e);
     }
 
 }

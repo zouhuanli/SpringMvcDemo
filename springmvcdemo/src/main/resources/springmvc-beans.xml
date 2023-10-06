@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--创建一个和@Component同名的Bean-->
     <bean name="beta" class="com.homura.bean.Beta">
         <constructor-arg index="0" ref="sigma"/>
@@ -19,5 +18,20 @@
     <bean name="beta2" class="com.homura.bean.Beta">
         <property name="sigma" ref="sigma"/>
     </bean>
+
+<!--    &lt;!&ndash;AOP配置&ndash;&gt;-->
+<!--    <bean id="aspect" class="com.homura.aspect.LogAspect"/>-->
+<!--    <aop:aspectj-autoproxy/>-->
+<!--    <aop:config>-->
+<!--        <aop:aspect id="aspect" ref="aspect">-->
+<!--            <aop:pointcut id="pointcut" expression="execution (* com.homura.controller.*.*(..))"/>-->
+<!--            <aop:before method="doBefore" pointcut-ref="pointcut"/>-->
+<!--            <aop:after method="doAfter" pointcut-ref="pointcut"/>-->
+<!--            <aop:around method="doAround" pointcut-ref="pointcut"/>-->
+<!--            <aop:after-returning method="doAfterReturning" pointcut-ref="pointcut" returning="result"/>-->
+<!--            <aop:after-throwing method="doAfterThrowing" pointcut-ref="pointcut" throwing="e"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
 
 </beans>
