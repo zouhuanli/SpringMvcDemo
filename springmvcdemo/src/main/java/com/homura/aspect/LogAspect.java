@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  *
  * @author zouhl
  */
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 @Component
 @Aspect
 public class LogAspect {
