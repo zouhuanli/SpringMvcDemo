@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
 
+@RequestMapping("/user")
 @Controller
 public class UserController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
@@ -32,7 +33,7 @@ public class UserController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/user")
+    @RequestMapping("/userList")
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("dateTime", LocalDateTime.now());
