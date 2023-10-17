@@ -38,4 +38,9 @@ public class User implements Serializable {
      * 地址
      */
     private String address;
+
+    /**
+     * 年龄
+     */
+    private Integer  age;
 }

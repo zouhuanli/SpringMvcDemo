@@ -1,5 +1,6 @@
 package com.homura.controller;
 
+import com.homura.entity.User;
 import com.homura.service.UserServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -52,10 +53,10 @@ public class UserController {
      */
     @RequestMapping(value = "/hello", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<String> hello(@RequestBody String requestBody, HttpServletRequest request, HttpServletResponse response) {
+    public User hello(@RequestBody User requestBody, HttpServletRequest request, HttpServletResponse response) {
         LOGGER.info("receive requestBody:{} ", requestBody);
         String responseJson = "{\"userName\":\"张三\",\"age\":18}";
-        return new ResponseEntity<>(responseJson, HttpStatus.OK);
+        return requestBody;
     }
 
 
