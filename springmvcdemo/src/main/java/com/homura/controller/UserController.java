@@ -7,9 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,10 +52,17 @@ public class UserController {
     @RequestMapping(value = "/hello", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public User hello(@RequestBody User requestBody, HttpServletRequest request, HttpServletResponse response) {
-        LOGGER.info("receive requestBody:{} ", requestBody);
+        LOGGER.info("receive user:{} ", requestBody);
         String responseJson = "{\"userName\":\"张三\",\"age\":18}";
         return requestBody;
     }
 
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public User addUser(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+        LOGGER.info("receive user:{} ", user);
+        userService.addUser(user);
+        return user;
+    }
 
 }

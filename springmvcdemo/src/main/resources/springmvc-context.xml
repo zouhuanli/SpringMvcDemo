@@ -11,9 +11,10 @@
     <context:component-scan base-package="com.homura"/>
     <context:annotation-config/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
+
     <import resource="classpath:springmvc-db.xml"/>
     <import resource="springmvc-beans.xml"/>
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean id="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath:springmvc-db.properties</value>

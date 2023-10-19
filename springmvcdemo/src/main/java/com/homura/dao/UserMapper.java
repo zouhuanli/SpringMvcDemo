@@ -1,14 +1,14 @@
 package com.homura.dao;
 
 import com.homura.entity.User;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * DAO
+ *
  * @author zouhl
  */
 @Repository
@@ -22,4 +22,15 @@ public interface UserMapper {
     @ResultMap("BaseResultMap")
     List<User> findUserList();
 
+    /**
+     * 添加用户
+     *
+     * @param user 用户
+     * @return
+     */
+    @Insert(" insert  into user (uid,uname,password,gender,phone,email,address) " +
+            " values " +
+            " (#{user.uid},#{user.uname},#{user.password},#{user.gender},#{user.phone},#{user.email},#{user.address})")
+    @ResultType(int.class)
+    int addUser(@Param("user") User user);
 }
