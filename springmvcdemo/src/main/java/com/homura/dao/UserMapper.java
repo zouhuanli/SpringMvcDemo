@@ -15,6 +15,8 @@ import java.util.List;
 public interface UserMapper {
     /**
      * 查找全部用户
+     * <p>
+     * 不要使用 select  *
      *
      * @return
      */

@@ -5,7 +5,8 @@
         <Property name="LOG_HOME">D:\\home\\springmvcdemo\\logs</Property>
         <Property name="LOG_FILE">${APP}_console.log</Property>
         <Property name="ERROR_LOG">error.log</Property>
-        <Property name="LOG_LEVEL">DEBUG</Property>
+            <!-- TRACE是为了跟踪框架源码执行流程，真正的日志等级请按照需求调整-->
+        <Property name="LOG_LEVEL">TRACE</Property>
         <Property name="LOG_PATTERN">%d|%-5p|%24F:%-4L|%t|%m%n</Property>
     </Properties>
     <Appenders>
