@@ -1,16 +1,12 @@
 package com.homura.config.mybatis;
 
-import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 @Data
-@Component
-public class DataSourceConfig {
+@Configuration
+public class DataSourcePropertiesBean {
     /**
      * <property name="driverClassName" value="${db.driver}"/>
      * <property name="jdbcUrl" value="${db.url}"/>
@@ -54,28 +50,5 @@ public class DataSourceConfig {
     @Value("${db.maximumPoolSize}")
     private int maximumPoolSize;
 
-
-    @Bean(name = "dataSource")
-    public HikariDataSource dataSource(@Autowired @Qualifier("dataSourceConfig") DataSourceConfig dataSourceConfig) {
-        return buildDataSource(dataSourceConfig);
-    }
-
-
-    private HikariDataSource buildDataSource(DataSourceConfig dataSourceConfig) {
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setDriverClassName(dataSourceConfig.getDriverClassName());
-        dataSource.setJdbcUrl(dataSourceConfig.getJdbcUrl());
-        dataSource.setUsername(dataSourceConfig.getUsername());
-        dataSource.setPassword(dataSourceConfig.getPassword());
-        dataSource.setConnectionTestQuery(dataSourceConfig.getConnectionTestQuery());
-        dataSource.setValidationTimeout(dataSourceConfig.getValidationTimeout());
-        dataSource.setReadOnly(dataSourceConfig.isReadOnly());
-        dataSource.setConnectionTimeout(dataSourceConfig.getConnectionTimeout());
-        dataSource.setIdleTimeout(dataSourceConfig.getIdleTimeout());
-        dataSource.setMaxLifetime(dataSourceConfig.getMaxLifetime());
-        dataSource.setMaximumPoolSize(dataSourceConfig.getMaximumPoolSize());
-
-        return dataSource;
-    }
 
 }
