@@ -1,5 +1,6 @@
 package com.homura;
 
+import com.homura.bean.importtest.*;
 import com.homura.config.AnnotationContextConfig;
 import com.homura.controller.UserController;
 import com.homura.dao.UserMapper;
@@ -16,6 +17,16 @@ public class AnnotationContextTest {
         applicationContext.getBean(UserController.class).hello(null, null, null);
         applicationContext.getBean(UserMapper.class).findUserList().forEach(System.out::println);
         System.out.println(applicationContext.getBean(DataSource.class));
+        System.out.println(applicationContext.getBean(TestBeanA.class));
+
+        System.out.println(applicationContext.getBean(TestConfiguration.class));
+        System.out.println(applicationContext.getBean("testBeanB"));
+
+       // System.out.println(applicationContext.getBean(TestImportSelector.class));
+        System.out.println(applicationContext.getBean("com.homura.bean.importtest.TestBeanC"));
+
+       // System.out.println(applicationContext.getBean(TestRegistrar.class));
+        System.out.println(applicationContext.getBean("testBeanD"));
 
     }
 }
